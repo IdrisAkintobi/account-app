@@ -27,10 +27,10 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 export let dbPath: any;
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: './env.test' });
-  dbPath = env.require('DBPATH');
+  dbPath = path.join(__dirname, '..', `${process.env.DBPATH}`);
 } else {
   require('dotenv').config();
-  dbPath = process.env.DBPATH;
+  dbPath = path.join(__dirname, '..', `${process.env.DBPATH}`);
 }
 readFile(dbPath, (err, data) => {
   if (err) {
