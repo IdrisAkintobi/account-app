@@ -43,6 +43,10 @@ The API you are to develop should be able to handle a transfer request of the fo
 
 ## Testing
 
+- Inputs should be string except amount
+
+## Testing
+
 ### Endpoints to test
 
 | Method | Endpoint                | Enable a user to:                                            |
