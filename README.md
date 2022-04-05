@@ -1,32 +1,30 @@
-# week-7-task-node010
+# Account App
 
-### Requirements
+### About
 
-1. Your are required to use `TypeScript` for the task and build the APIs (endpoints) with `express`
-2. Use and setup the project with `Yarn`
-3. Install docker on your Mac <a href="https://desktop.docker.com/mac/stable/Docker.dmg">Download</a>
-4. Create a docker Registry on <a href="https://hub.docker.com/signup">Create Account</a>
-5. Containerize your application with Docker and push to your docker repository.
-6. Validate all input coming into your api endpoints to ensure they have the required properties and data types
+- Project is written in `TypeScript` and APIs (endpoints) are built with `express`
+- Install dependencies with `Yarn`
+- Inputs are validated using `Zod`
 
 ## Problem Description:
 
 Imagine you are asked to develop a transfer service with APIs to transfer money between two accounts
-You application is expected to have the following database structure
+You application is expected to have the following in it database structure.
 
 - TABLE 1 - transactions
 
   - reference (unique)
-  - senderAccount nr
+  - sender (Account nunber)
   - amount
-  - receiverAccount nr
-  - transferDescription
-  - createdAt
+  - receiver (Account number)
+  - transfer Description
+  - createdAt (Date)
 
-- TABLE 2 - balances
-  - account nr (unique)
+- TABLE 2 - details
+  - account number (unique)
+  - account name
   - balance
-  - createdAt
+  - createdAt (Date)
 
 The transaction table registers any transaction in an account (ie. today I paid N2000 for a movie with my card), the balances table represents the account balance of customers (ie. I have N50k in my bank account). If a sender is trying to make a transaction of an amount of money more than his current balance, an error should be returned indicating insufficient funds
 
@@ -34,11 +32,16 @@ The API you are to develop should be able to handle a transfer request of the fo
 
 ```
 {
-    from: account,
-    to: account,
-    amount: money
+    from: account number,
+    to: account number,
+    amount: amount
 }
+
 ```
+
+- Inputs should be string except amount
+
+## Testing
 
 ### Endpoints to test
 
@@ -49,20 +52,14 @@ The API you are to develop should be able to handle a transfer request of the fo
 | GET    | /balance                | Getting all accounts and their balance                       |
 | POST   | /transfer               | To make a transaction to another account                     |
 
-## Test coverage
+- Test using `supertest`
 
-- Make sure you write test to cover your application using supertest
+### Hosted on heroku
 
-## Hosting
-
-- Host your application on Heroku
-
-## Server sample data
-
-#### Transfer mock data
+#### Transfer sample data
 
 {"from" : "6739230355", "to": "76467357100", "amount": 8000, "description": "Rent"}
 
-#### Create user mock data
+#### Create user sample data
 
 {"accName": "Luther King", "balance": 24000}
