@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "yarn tsc && node ./bin/www",
+    "test": "yarn jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -11,20 +12,30 @@
     "ejs": "~3.1.6",
     "express": "~4.17.1",
     "http-errors": "~1.8.0",
-    "morgan": "~1.10.0"
+    "morgan": "~1.10.0",
+    "uuid": "~8.3.2",
+    "zod": "~3.14.3"
   },
   "devDependencies": {
+    "@humanwhocodes/env": "~2.2.0",
     "@types/cookie-parser": "~1.4.2",
     "@types/debug": "~4.1.7",
     "@types/express": "~4.17.13",
     "@types/http-errors": "~1.8.1",
+    "@types/jest": "~27.4.1",
     "@types/morgan": "~1.9.3",
     "@types/node": "14",
+    "@types/supertest": "~2.0.12",
+    "@types/uuid": "~8.3.4",
     "@typescript-eslint/eslint-plugin": "~4.29.1",
     "@typescript-eslint/parser": "~4.29.1",
+    "dotenv": "~16.0.0",
     "eslint": "~7.32.0",
     "eslint-config-prettier": "~8.3.0",
+    "jest": "~27.5.1",
     "prettier": "~2.3.2",
+    "supertest": "~6.2.2",
+    "ts-jest": "~27.1.4",
     "typescript": "~4.3.5"
   }
 }
