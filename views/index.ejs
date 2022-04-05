@@ -7,5 +7,17 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <h3>Usage</h3>
+    <hr>
+    <ul>
+      <li>Go to '/create' to create account</li>
+      <p>- example of expected data to create account</p>
+      <p>{"accName": "Luther King", "balance": 24000}</p></br>
+      <li>Go to '/balance' to view all customers balance</li></br>
+      <li>Go to '/balance/:account-number' to view the account holder balance</li></br>
+      <li>Go to '/transfer' to initiate transfer</li>
+      <p>- example of expected data to initiate transfer</p>
+      <p>{"from" : "6739230355", "to": "76467357100", "amount": 8000, "description": "Rent"}</p>
+    </ul>
   </body>
 </html>

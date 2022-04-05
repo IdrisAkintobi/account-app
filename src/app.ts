@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import homepage from './routes/index';
 import balance from './routes/balance';
 import transfer from './routes/transfer';
 import create from './routes/create-account';
@@ -34,6 +35,7 @@ readFile(dbPath, (err, data) => {
 });
 
 //App routes
+app.use('/', homepage);
 app.use('/balance', balance);
 app.use('/transfer', transfer);
 app.use('/create', create);
