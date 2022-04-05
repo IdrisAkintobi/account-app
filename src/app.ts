@@ -24,10 +24,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 //Creating database when app starts... Create different database for test
+export let dbPath: any;
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: './env.test' });
-} else require('dotenv').config();
-export const dbPath = env.require('DBPATH');
+  dbPath = env.require('DBPATH');
+} else {
+  require('dotenv').config();
+  dbPath = process.env.DBPATH;
+}
 readFile(dbPath, (err, data) => {
   if (err) {
     writeFile(dbPath, JSON.stringify([]), (err) => {});
